@@ -1,6 +1,8 @@
 numToRoman = (num) => {
     const unit = 'I';
-    if (num === 4) {
+    if (num === 5) {
+        return 'V';
+    } else if (num === 4) {
         return 'IV';
     } else {
         return `${unit.repeat(num)}`;
@@ -17,7 +19,10 @@ describe('Test converting Arabic numbers to Roman numerals', () => {
     it('should convert 3 to III', () => {
         expect(numToRoman(3)).toEqual('III');
     });
-    it.skip('should convert 4 to IV', () => {
+    it('should convert 4 to IV', () => {
         expect(numToRoman(4)).toEqual('IV');
+    });
+    it('should convert 5 to V', () => {
+        expect(numToRoman(5)).toEqual('V');
     });
 });
