@@ -1,16 +1,14 @@
+const arabic = [10, 9, 5, 4, 1];
+const roman = ['X', 'IX', 'V', 'IV', 'I'];
+
 numToRoman = (num) => {
-// From 5 up we need to start with V, then append Is
-    const unit = 'I';
-    let remaining = num;
     let result = '';
-    if (remaining >= 5) {
-        result += 'V';
-        remaining -= 5;
-    } else if (num === 4) {
-        result += 'IV';
-        remaining -= 4;
-    }
-    result += `${unit.repeat(remaining)}`;
+    arabic.map((value, index) => {
+        while (num >= value) {
+            result += roman[index];
+            num -= value;
+        }
+    });
     return result;
 }
 
@@ -38,5 +36,11 @@ describe('Test converting Arabic numbers to Roman numerals', () => {
     });
     it('should convert 8 to VIII', () => {
         expect(numToRoman(8)).toEqual('VIII');
+    });
+    it('should convert 9 to IX', () => {
+        expect(numToRoman(9)).toEqual('IX');
+    });
+    it('should convert 9 to IX', () => {
+        expect(numToRoman(10)).toEqual('X');
     });
 });

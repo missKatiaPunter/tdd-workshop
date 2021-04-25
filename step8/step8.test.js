@@ -3,7 +3,10 @@ numToRoman = (num) => {
     const unit = 'I';
     let remaining = num;
     let result = '';
-    if (remaining >= 5) {
+    if (remaining >= 9) {
+        result += 'IX';
+        remaining -= 9;
+    } else if (remaining >= 5) {
         result += 'V';
         remaining -= 5;
     } else if (num === 4) {
@@ -38,5 +41,8 @@ describe('Test converting Arabic numbers to Roman numerals', () => {
     });
     it('should convert 8 to VIII', () => {
         expect(numToRoman(8)).toEqual('VIII');
+    });
+    it('should convert 9 to IX', () => {
+        expect(numToRoman(9)).toEqual('IX');
     });
 });
