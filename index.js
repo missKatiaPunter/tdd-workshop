@@ -2,4 +2,6 @@ numToRoman = (num) => {
 
 }
 
-module.exports = { numToRoman };
+if (typeof module !== 'undefined') {
+  module.exports = numToRoman;
+}
